@@ -15,7 +15,12 @@ public:
 	PhoneBook();
 	~PhoneBook();
 
-	void addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret);
+	void addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret) {
+		if (index > 8)
+			index = 0;
+		contacts[index].setInfo(firstName, lastName, nickname, phoneNumber, darkSecret);
+		index++;
+	};
 };
 
 

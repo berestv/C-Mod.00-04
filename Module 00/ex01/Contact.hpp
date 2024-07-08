@@ -17,6 +17,22 @@ public:
 	~Contact();
 
 	void setInfo( std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret );
+
+	std::string getName(){
+		return fstName;
+	};
+	std::string getLstName(){
+		return lstName;
+	};
+	std::string getNicknm(){
+		return nick;
+	};
+	std::string getPhone(){
+		return phone;
+	};
+	std::string getSecret(){
+		return secret;
+	};
 };
 
 #endif //CONTACT_HPP

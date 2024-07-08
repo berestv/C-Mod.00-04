@@ -8,13 +8,6 @@ PhoneBook::~PhoneBook(){
 
 };
 
-void PhoneBook::addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret) {
-	if (index > 8)
-		index = 0;
-	contacts[index].setInfo(firstName, lastName, nickname, phoneNumber, darkSecret);
-	index++;
-};
-
 void add(PhoneBook myPhoneBook)
 {
 	std::string fName;
@@ -24,18 +17,32 @@ void add(PhoneBook myPhoneBook)
 	std::string dsec;
 
 	system("clear");
-	std::cout << "    First Name: ";
+	std::cout << "First Name    : ";
 	std::cin >> fName;
-	std::cout << "     Last Name: ";
+	std::cout << "Last Name     : ";
 	std::cin >> lName;
-	std::cout << "      Nickname: ";
+	std::cout << "Nickname      : ";
 	std::cin >> nick;
-	std::cout << "  Phone Number: ";
+	std::cout << "Phone Number  : ";
 	std::cin >> phn;
 	std::cout << "Darkest Secret: ";
 	std::cin >> dsec;
 
+	if (fName.empty())
+		fName = "Unknown";
+	if (nick.empty())
+		nick = "N/A";
+	if (phn.empty())
+		nick = "N/A";
+	if (dsec.empty())
+		nick = "No secrets to reveal";
+
 	myPhoneBook.addContact(fName, lName, nick, phn, dsec);
+}
+
+void search(PhoneBook myPhoneBook)
+{
+	// Search
 }
 
 int	main(int argc, char *argv[])
@@ -65,8 +72,6 @@ int	main(int argc, char *argv[])
 		std::cout << " > ";
 		std::cin >> comm;
 
-		if ()
-
 		if (comm == "ADD")
 			c = 1;
 		else if (comm == "SEARCH")
@@ -91,7 +96,6 @@ int	main(int argc, char *argv[])
 		}
 		system("clear");
 	}
-
 	std::cout << "\nProgram will exit." << std::endl;
 	return (0);
 }
