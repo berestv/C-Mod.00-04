@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = megaphone
-SRC = phonebook.cpp
+NAME = phonebook
+SRC = PhoneBook.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

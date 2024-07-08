@@ -5,7 +5,7 @@ RM = rm -rf
 
 # Project name
 NAME = megaphone
-SRC = megaphone.cpp
+SRC = Megaphone.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
