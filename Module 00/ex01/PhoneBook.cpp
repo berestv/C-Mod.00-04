@@ -1,5 +1,19 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
+
+PhoneBook::PhoneBook(){
+	index = 0;
+};
+
+PhoneBook::~PhoneBook(){
+
+};
+
+void PhoneBook::addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret) {
+	if (index > 8)
+		index = 0;
+	contacts[index].setInfo(firstName, lastName, nickname, phoneNumber, darkSecret);
+	index++;
+};
 
 void add(PhoneBook myPhoneBook)
 {
@@ -34,7 +48,6 @@ int	main(int argc, char *argv[])
 	std::string var;
 	int c = 0;
 
-
 	while (c != 3)
 	{
 		std::cout << "┌---------------------------------┐" << std::endl;
@@ -51,6 +64,8 @@ int	main(int argc, char *argv[])
 		std::cout << "└---------------------------------┘" << std::endl;
 		std::cout << " > ";
 		std::cin >> comm;
+
+		if ()
 
 		if (comm == "ADD")
 			c = 1;
@@ -74,6 +89,7 @@ int	main(int argc, char *argv[])
 				std::cerr << "\nWrong input!" << std::endl;
 				break;
 		}
+		system("clear");
 	}
 
 	std::cout << "\nProgram will exit." << std::endl;

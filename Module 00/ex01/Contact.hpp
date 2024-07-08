@@ -1,6 +1,7 @@
 #ifndef CONTACT_HPP
-#define CONTACT_HPP
-#include <iostream>
+# define CONTACT_HPP
+
+# include <iostream>
 
 class Contact
 {
@@ -15,13 +16,7 @@ public:
 	Contact();
 	~Contact();
 
-	void setInfo( std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret ){
-		fstName = firstName;
-		lstName = lastName;
-		nick = nickname;
-		phone = phoneNumber;
-		secret = darkSecret;
-	};
+	void setInfo( std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret );
 };
 
 #endif //CONTACT_HPP

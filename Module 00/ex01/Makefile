@@ -5,7 +5,7 @@ RM = rm -rf
 
 # Project name
 NAME = phonebook
-SRC = PhoneBook.cpp
+SRC = PhoneBook.cpp Contact.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
