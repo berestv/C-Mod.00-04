@@ -3,16 +3,28 @@
 PhoneBook::PhoneBook(){
 	index = 0;
 	conNum = 0;
-};
+}
 
-PhoneBook::~PhoneBook(){
-
-};
+PhoneBook::~PhoneBook(){ }
 
 PhoneBook myPhoneBook;
 
-void add()
+bool validPhone(std::string phone)
 {
+	if (phone.empty())
+		return false;
+	for (size_t i = 0; i < phone.length(); ++i)
+	{
+		if (!isdigit(phone[i]) && phone[i] != '+')
+			return false;
+		if (phone[i] == '+' && i != 0)
+			return false;
+	}
+
+	return true;
+}
+
+void add() {
 	std::string fName;
 	std::string lName;
 	std::string nick;
@@ -20,44 +32,53 @@ void add()
 	std::string dsec;
 
 	system("clear");
+
 	std::cout << "First Name    : ";
-	std::cin >> fName;
+	std::getline(std::cin, fName);
 	std::cout << "Last Name     : ";
-	std::cin >> lName;
+	std::getline(std::cin, lName);
 	std::cout << "Nickname      : ";
-	std::cin >> nick;
+	std::getline(std::cin, nick);
+
 	std::cout << "Phone Number  : ";
-	std::cin >> phn;
+	std::getline(std::cin, phn);
+
+	while (!validPhone(phn)) {
+		std::cout << "Phone numbers can only contain digits and a '+'.\nIt also can't be empty. Please try again." << std::endl;
+		std::cout << "Phone Number  : ";
+		std::getline(std::cin, phn);
+	}
+
 	std::cout << "Darkest Secret: ";
-	std::cin >> dsec;
+	std::getline(std::cin, dsec);
 
 	if (fName.empty())
 		fName = "Unknown";
 	if (lName.empty())
-		fName = "Unknown";
+		lName = "Unknown";
 	if (nick.empty())
 		nick = "N/A";
-	if (phn.empty())
-		nick = "N/A";
 	if (dsec.empty())
-		nick = "No secrets to reveal";
+		dsec = "No secrets to reveal";
 
 	myPhoneBook.addContact(fName, lName, nick, phn, dsec);
+	std::cout << GREEN << "\nContact added!" << RESET << std::endl;
+	std::cout << "Press Enter to continue ";
 }
 
-void trimOutput(std::string setVar, int n, char c)
+void trimOutput(std::string setVar, size_t n, char c)
 {
-	if ((int)setVar.size() > n)
+	if (setVar.size() > n)
 		setVar = setVar.substr(0, n - 1) + ".";
 	if (c == 'L')
 	{
-		for (int j = setVar.size(); j < n; ++j) { std::cout << " "; }
+		for (size_t j = setVar.size(); j < n; ++j) { std::cout << " "; }
 		std::cout << setVar << "|";
 	}
 	if (c == 'D')
 	{
 		std::cout << setVar;
-		for (int j = setVar.size(); j < n; ++j) { std::cout << " "; }
+		for (size_t j = setVar.size(); j < n; ++j) { std::cout << " "; }
 		std::cout << "|";
 	}
 }
@@ -65,18 +86,18 @@ void trimOutput(std::string setVar, int n, char c)
 void contactDetails(int i)
 {
 	std::string setVar = myPhoneBook.getNameInd(i);
-	int len = setVar.size();
+	size_t len = setVar.size();
 
 	system("clear");
 	std::cout << "┌";
-	for (int j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
 	std::cout << "┐" << std::endl;
 	std::cout << "| Detailed info about " << setVar << " |";
 	std::cout << "\n├";
-	for (int j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
 	std::cout << "┘" << std::endl;
 	std::cout << "|Index No. : " << i << std::endl;
-	setVar = myPhoneBook.getNameInd(i);
+
 	std::cout << "|First Name: " << setVar << std::endl;
 
 	setVar = myPhoneBook.getLstNameInd(i);
@@ -85,11 +106,14 @@ void contactDetails(int i)
 	setVar = myPhoneBook.getNicknmIndx(i);
 	std::cout << "|Nickname  : " << setVar << std::endl;
 
+	setVar = myPhoneBook.getPhoneIndx(i);
+	std::cout << "|Phone No. : " << setVar << std::endl;
+
 	setVar = myPhoneBook.getSecretIndx(i);
-	std::cout << "|Darkest Secret:\n|" << setVar << std::endl;
+	std::cout << "|Darkest Secret: " << setVar << std::endl;
 	std::cout << "└";
-	for (int j = 0; j < 22 + len; ++j) { std::cout << "~"; }
-	std::cout << "\n\nPress Enter to continue";
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	std::cout << "\n\nPress Enter to continue ";
 	std::cin.ignore();
 }
 
@@ -101,7 +125,7 @@ void search()
 	while (num != -1)
 	{
 		system("clear");
-		std::cout << "┌-------------------------------------------┐" << std::endl;
+		std::cout << "╭~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~╮" << std::endl;
 		std::cout << "|              My Contacts List             |" << std::endl;
 		std::cout << "|            ———————————————————            |" << std::endl;
 		std::cout << "├~~~~~~~~~~┬~~~~~~~~~~┬~~~~~~~~~~┬~~~~~~~~~~┤" << std::endl;
@@ -124,11 +148,11 @@ void search()
 		}
 
 		if (myPhoneBook.getTrueNo() == 1)
-			std::cout << "|    ☎     |▶    " << myPhoneBook.getTrueNo() << "  Contact     ◀|     ☎    |" << std::endl;
+			std::cout << "|    ☎     |▶    " << BLINK << myPhoneBook.getTrueNo() << "  Contact" << ENDBL "     ◀|     ☎    |" << std::endl;
 		else
-			std::cout << "|    ☎     |▶    " << myPhoneBook.getTrueNo() << "  Contacts    ◀|     ☎    |" << std::endl;
+			std::cout << "|    ☎     |▶    " << BLINK << myPhoneBook.getTrueNo() << "  Contacts" << ENDBL "    ◀|     ☎    |" << std::endl;
 		std::cout << "╰——————————┴——————————┴——————————┴——————————╯" << std::endl;
-		std::cout << "\nInput anything that isn't a number to return." << std::endl;
+		std::cout << "\nType any letter to return." << std::endl;
 		std::cout << "For contact details, write the index: ";
 		std::cin >> num;
 
@@ -138,23 +162,26 @@ void search()
 		{
 			while (num < 0 || num > 8 || num > myPhoneBook.getTrueNo() - 1)
 			{
-				if (num > 8)
-					std::cerr << "What, do you think I'm some kind of supercomputer?\nThis is the 80s, I have VERY limited memory." << std::endl;
-				if (num < 0 || num > myPhoneBook.getTrueNo() - 1)
-					std::cerr << "Error: Indexes range from 0 to " << myPhoneBook.getTrueNo() - 1;
+				if (num >= 8)
+					std::cerr << RED << "\nWhat, do you think I'm some kind of supercomputer?\nThis is the 80s, I have VERY limited memory." << RESET << std::endl;
+				else if (num < 0 || num > myPhoneBook.getTrueNo() - 1)
+					std::cerr << RED << "Error: Indexes range from 0 to " << myPhoneBook.getTrueNo() - 1 << RESET;
 				std::cin.clear();
-				std::cout << "\nInput anything that isn't a number to return." << std::endl;
+				std::cout << "\nAnything ≠ than a number will return." << std::endl;
 				std::cout << "For contact details, write the index: ";
 				std::cin >> num;
 			}
 			contactDetails(num);
 		}
-		std::cin.ignore();
+		std::cin.ignore(10000, '\n');
 		std::cin.clear();
 	}
 }
 
-
+void handleSigint(int sig) {
+	std::cout << "\nCaught signal " << sig << ". Exiting safely...\n";
+	exit(sig);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -184,13 +211,13 @@ int	main(int argc, char *argv[])
 		std::cout << "└---------------------------------┘" << std::endl;
 		if (wrong == 1)
 		{
-			std::cerr << "Wrong input! Try again." << std::endl;
+			std::cerr << RED << "Wrong input! Try again." << RESET << std::endl;
 			wrong = 0;
 		}
 		std::cout << " > ";
-		std::cin >> comm;
+		std::getline(std::cin, comm);
+		//std::cin >> comm;
 
-		wrong = 0;
 		if (std::cin.eof())
 			break ;
 		if (!comm.empty())
@@ -217,7 +244,6 @@ int	main(int argc, char *argv[])
 					wrong = 1;
 					break;
 			}
-			std::cin.ignore();
 			std::cin.clear();
 		}
 		comm = "";

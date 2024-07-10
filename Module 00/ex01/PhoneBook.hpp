@@ -1,9 +1,15 @@
 #ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-# include <iostream>
-# include <stdlib.h>
-# include "Contact.hpp"
+#include <iostream>
+#include <cstdlib>
+#include "Contact.hpp"
+
+#define RESET       "\033[0m"
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define BLINK       "\033[5m"
+#define ENDBL       "\033[25m"
 
 class PhoneBook
 {
@@ -17,12 +23,18 @@ public:
 	~PhoneBook();
 
 	void addContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkSecret) {
-		if (index > 8)
+		if (index > 7)
 			index = 0;
 		if (conNum < 8)
 			conNum++;
+		if (conNum == 8)
+			clearIndex(index);
 		contacts[index].setInfo(firstName, lastName, nickname, phoneNumber, darkSecret);
 		index++;
+	};
+
+	void clearIndex(int idx) {
+		contacts[idx].clearCnt();
 	};
 
 	int getIndex(){
