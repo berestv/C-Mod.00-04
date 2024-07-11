@@ -64,6 +64,7 @@ void add() {
 	myPhoneBook.addContact(fName, lName, nick, phn, dsec);
 	std::cout << GREEN << "\nContact added!" << RESET << std::endl;
 	std::cout << "Press Enter to continue ";
+	std::cin.ignore();
 }
 
 void trimOutput(std::string setVar, size_t n, char c)
@@ -158,7 +159,7 @@ void search()
 
 		if (std::cin.fail())
 			num = -1;
-		else
+		else if (myPhoneBook.getTrueNo() > 0)
 		{
 			while (num < 0 || num > 8 || num > myPhoneBook.getTrueNo() - 1)
 			{
@@ -172,6 +173,12 @@ void search()
 				std::cin >> num;
 			}
 			contactDetails(num);
+		}
+		else
+		{
+			std::cerr << RED << "\nNo contacts were ever added!" << RESET << std::endl;
+			std::cin.ignore();
+			return ;
 		}
 		std::cin.ignore(10000, '\n');
 		std::cin.clear();
