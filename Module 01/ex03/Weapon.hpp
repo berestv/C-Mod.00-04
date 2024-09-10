@@ -8,10 +8,10 @@ private:
 	std::string type;
 
 public:
-	Weapon();
+	Weapon( std::string );
 	~Weapon();
 
-	std::string getType();
+	std::string getType() const;
 	void setType( std::string tp );
 };
 

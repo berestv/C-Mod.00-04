@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = hiThisIsBrain
-SRC = main.cpp
+NAME = unnecessaryViolence
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
