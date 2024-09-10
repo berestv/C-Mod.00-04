@@ -12,7 +12,7 @@ void HumanB::setWeapon(Weapon &wp) {
 
 void HumanB::attack() {
 	if (!weapon)
-		std::cout << name << " attacks with a rock from the ground";
+		std::cout << name << " attacks with a rock he found on the ground";
 	else
 		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
