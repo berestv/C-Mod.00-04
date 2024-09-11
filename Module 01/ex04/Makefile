@@ -25,6 +25,7 @@ clean:
 
 fclean:
 		$(RM) $(OBJ) $(NAME) $(OBJDIR)
+		$(RM) *.replace
 
 re: fclean all
 
