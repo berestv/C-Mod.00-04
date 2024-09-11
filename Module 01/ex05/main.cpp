@@ -5,9 +5,9 @@ int main (int argc, char *argv[]){
 
 	if (argc > 1)
 	{
-		for (int i = 1; i < argc; ++i) {
+		for (int i = 1; i < argc; ++i)
 			harley.complain(argv[i]);
-		}
+
 		std::cout << std::endl;
 		std::cout << "Separate tests:" << std::endl;
 		std::cout << std::endl;
