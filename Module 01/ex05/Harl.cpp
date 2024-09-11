@@ -32,10 +32,10 @@ void Harl::complain(std::string level) {
 
 	void (Harl::*types[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
 		if (level == levels[i])
 			return (void)(this->*types[i])();
-	}
+
 	std::cout << "[INVALID]" << std::endl;
 	std::cout << "Invalid complaint. Time to go home, Harl." << std::endl;
 }
