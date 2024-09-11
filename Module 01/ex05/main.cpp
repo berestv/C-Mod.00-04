@@ -8,11 +8,11 @@ int main (int argc, char *argv[]){
 		for (int i = 1; i < argc; ++i)
 			harley.complain(argv[i]);
 
-/*		std::cout << std::endl;
+		std::cout << std::endl;
 		std::cout << "Separate tests:" << std::endl;
-		std::cout << std::endl;*/
+		std::cout << std::endl;
 	}
-/*	// Testing valid complaints
+	// Testing valid complaints
 	harley.complain("DEBUG");
 	std::cout << std::endl;
 	harley.complain("INFO");
@@ -28,5 +28,5 @@ int main (int argc, char *argv[]){
 	harley.complain("INVALID");
 	harley.complain("MORE BACON!");
 	harley.complain("123");
-	harley.complain("1");*/
+	harley.complain("1");
 }
