@@ -1,6 +1,6 @@
 # C++ Flags / Variables
 CPP = c++
-CFLAGS = -Wall -Wextra -g -std=c++98 #-Werror
+CFLAGS = -Wall -g -std=c++98 # -Wextra -Werror
 RM = rm -rf
 
 # Project name
