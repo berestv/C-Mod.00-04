@@ -9,7 +9,10 @@ private:
 	static const int frac = 8;
 public:
 	Fixed();
+	Fixed(const Fixed& c);
+	Fixed& operator=(const Fixed& op);
 	~Fixed();
+
 	int getRawBits (void) const;
 	void setRawBits (int const raw);
 };
