@@ -28,6 +28,7 @@ void Harl::error() {
 
 void Harl::complain(std::string level) {
 	std::string levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	void (Harl::*types[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 	int cmpl = -1;
 
 	for (int i = 0; i < 4; i++)
@@ -36,15 +37,19 @@ void Harl::complain(std::string level) {
 
 	switch (cmpl) {
 		case 0:
-			this->debug();
+			(this->*types[0])();
+			/* fall through */
 		case 1:
-			this->info();
+			(this->*types[1])();
+			/* fall through */
 		case 2:
-			this->warning();
+			(this->*types[2])();
+			/* fall through */
 		case 3:
-			this->error();
-			break;
+			(this->*types[3])();
+				break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
 }
