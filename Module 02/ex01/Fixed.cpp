@@ -4,8 +4,7 @@ Fixed::Fixed() : fxp(0) {
 	std::cout << "Default constructor called" << std::endl;
 };
 
-Fixed::Fixed(const Fixed& c) {
-	fxp = c.fxp;
+Fixed::Fixed(const Fixed& c) : fxp(c.fxp) {
 	std::cout << "Copy constructor called" << std::endl;
 };
 
