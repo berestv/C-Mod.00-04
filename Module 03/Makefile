@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = firstOrthClass
-SRC = main.cpp Fixed.cpp
+NAME = clapTrap
+SRC = ClapTrap.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
