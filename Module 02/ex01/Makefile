@@ -4,7 +4,7 @@ CFLAGS = -Wall -g -std=c++98 # -Wextra -Werror
 RM = rm -rf
 
 # Project name
-NAME = firstOrthClass
+NAME = moreUsefulFxpNoClass
 SRC = main.cpp Fixed.cpp
 
 OBJDIR = bin
