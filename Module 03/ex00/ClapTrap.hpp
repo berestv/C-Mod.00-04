@@ -7,11 +7,11 @@ class ClapTrap {
 private:
 	std::string name;
 	int hp;
-	int egy;
+	int enrg;
 	int atk;
 
 public:
-	ClapTrap();
+	ClapTrap(std::string nm);
 	ClapTrap(const ClapTrap& c);
 	ClapTrap &operator=(const ClapTrap& op);
 	~ClapTrap();
