@@ -50,7 +50,11 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	{
 		this->hp -= amount;
 		if (this->hp <= 0)
+		{
+			this->enrg = 0;
+			this->atk = 0;
 			std::cout << this->name << " ClapTrap got clapped." << std::endl;
+		}
 		else
 			std::cout << "Ouch! " << this->name << " received " << amount <<
 			" points of damage! Current HP: " << this->hp << std::endl;
