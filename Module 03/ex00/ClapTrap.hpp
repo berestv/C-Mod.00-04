@@ -11,6 +11,7 @@ private:
 	int atk;
 
 public:
+	ClapTrap();
 	ClapTrap(std::string nm);
 	ClapTrap(const ClapTrap& c);
 	ClapTrap &operator=(const ClapTrap& op);
@@ -19,7 +20,7 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
+	std::string getName();
 };
 
 #endif //CLAPTRAP_HPP

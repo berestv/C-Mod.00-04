@@ -5,7 +5,7 @@ RM = rm -rf
 
 # Project name
 NAME = clapTrap
-SRC = ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
