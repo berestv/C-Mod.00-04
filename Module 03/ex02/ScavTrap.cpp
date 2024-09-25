@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() {
-	std::cout << "ScavTrap default constructor called." << std::endl;
+	std::cout << this->name << "'s ScavTrap default constructor called." << std::endl;
 	name = "CheekiBreeki";
 	this->hp = 100;
 	this->enrg = 50;
@@ -10,7 +10,7 @@ ScavTrap::ScavTrap() {
 }
 
 ScavTrap::ScavTrap(std::string nm) : ClapTrap(nm) {
-	std::cout << "ScavTrap constructor called." << std::endl;
+	std::cout << this->name << "'s ScavTrap constructor called." << std::endl;
 	this->name = nm;
 	this->hp = 100;
 	this->enrg = 50;
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(std::string nm) : ClapTrap(nm) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &c) : ClapTrap(c) {
-	std::cout << "ScavTrap copy constructor called." << std::endl;
+	std::cout << this->name << "'s ScavTrap copy constructor called." << std::endl;
 	this->name = c.name;
 	this->hp = c.hp;
 	this->enrg = c.enrg;
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap(const ScavTrap &c) : ClapTrap(c) {
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &op) {
-	std::cout << "ScavTrap copy assignment operator called." << std::endl;
+	std::cout << this->name << "'s ScavTrap copy assignment operator called." << std::endl;
 	if (this != &op)
 	{
 		this->name = op.name;
@@ -41,7 +41,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &op) {
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap destructor called." << std::endl;
+	std::cout << this->name << "'s ScavTrap destructor called." << std::endl;
 }
 
 // --------- FUNCTIONS ---------

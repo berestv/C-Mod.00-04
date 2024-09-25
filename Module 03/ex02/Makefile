@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = scavTrap
+NAME = fragTrap
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJDIR = bin
