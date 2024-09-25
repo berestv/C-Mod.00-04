@@ -6,9 +6,15 @@
 class Animal {
 protected:
 	std::string type;
-
 public:
-	void makeSound();
+	Animal();
+	//Animal(std::string tp);
+	Animal (const Animal& copyAnm);
+	Animal &operator=(const Animal& op);
+	virtual ~Animal();
+
+	virtual void makeSound() const;
+	std::string getType() const;
 };
 
 #endif //ANIMAL_HPP
