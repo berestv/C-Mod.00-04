@@ -21,6 +21,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	std::string getName();
+	unsigned int getDmg() const;
 };
 
 #endif //CLAPTRAP_HPP

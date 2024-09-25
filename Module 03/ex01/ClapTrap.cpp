@@ -53,7 +53,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		{
 			this->enrg = 0;
 			this->atk = 0;
-			std::cout << this->name << " ClapTrap got clapped." << std::endl;
+			std::cout << "ClapTrap " << this->name << " got clapped." << std::endl;
 		}
 		else
 			std::cout << "Ouch! " << this->name << " received " << amount <<
@@ -63,7 +63,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->enrg <= 0)
-		std::cout << "Can't attack! No energy left." << std::endl;
+		std::cout << "Can't repair " << this->name << "! No energy left." << std::endl;
 	else if (this->hp <= 0)
 		std::cout << "ClapTrap got clapped." << std::endl;
 	else
@@ -76,4 +76,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 std::string ClapTrap::getName() {
 	return this->name;
+}
+
+unsigned int ClapTrap::getDmg() const {
+	return this->atk;
 }

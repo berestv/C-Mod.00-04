@@ -1,24 +1,35 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-	ClapTrap noname;
 	ClapTrap player("USEC 3");
 	ClapTrap bot("Shturman");
-
-	noname.attack("Nothing");
+	ScavTrap raider("Kobra");
 	std::cout << std::endl;
 
 	player.attack(bot.getName());
-	bot.takeDamage(1);
+	bot.takeDamage(2);
 	std::cout << std::endl;
 
 	bot.attack(player.getName());
-	player.takeDamage(1);
+	player.takeDamage(bot.getDmg());
 	std::cout << std::endl;
 
-	std::cout << "NATO entered the chat." << std::endl;
-	std::cout << "NATO said: STOP FIGHTING!" << std::endl;
+	raider.attack(player.getName());
+	player.takeDamage(9);
 	std::cout << std::endl;
+
+	raider.guardGate();
+	raider.attack(bot.getName());
+	bot.takeDamage(raider.getDmg());
+	std::cout << std::endl;
+
 	player.beRepaired(1);
 	bot.beRepaired(1);
+	std::cout << std::endl;
+
+	raider.guardGate();
+	raider.attack(player.getName());
+	player.takeDamage(raider.getDmg());
+	std::cout << std::endl;
 }
