@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = polymorphism
+NAME = worldOnFire
 SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJDIR = bin
