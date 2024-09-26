@@ -29,6 +29,5 @@ WrongCat::~WrongCat() {
 // Functions
 
 void WrongCat::makeSound() const {
-	if (this->type == "WrongCat")
-		std::cout << "Meow meow. Pet me!" << std::endl;
+	std::cout << "Waltuh..." << std::endl;
 }
