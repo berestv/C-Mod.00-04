@@ -16,6 +16,7 @@ public:
 	~Cat();
 
 	void makeSound() const;
+	std::string exteriorize(int index) const;
 };
 
 #endif //CAT_HPP

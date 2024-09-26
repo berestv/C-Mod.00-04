@@ -12,6 +12,8 @@ public:
 	Brain(const Brain& br);
 	Brain &operator=(const Brain& brop);
 	~Brain();
+
+	std::string exteriorize(int index);
 };
 
 #endif //BRAIN_HPP

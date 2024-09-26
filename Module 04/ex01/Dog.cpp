@@ -32,3 +32,7 @@ void Dog::makeSound() const {
 	if(this->type == "Dog")
 		std::cout << "Woof woof. Pet me!" << std::endl;
 }
+
+std::string Dog::exteriorize(int index) const {
+	return this->brain->exteriorize(index);
+}

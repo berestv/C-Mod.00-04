@@ -37,3 +37,7 @@ void Cat::makeSound() const {
 	if (this->type == "Cat")
 		std::cout << "Meow meow. Pet me!" << std::endl;
 }
+
+std::string Cat::exteriorize(int index) const {
+	return this->brain->exteriorize(index);
+}
