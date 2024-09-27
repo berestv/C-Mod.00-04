@@ -3,6 +3,7 @@
 Dog::Dog() {
 	std::cout << "Dog default constructor called." << std::endl;
 	this->type = "Dog";
+	this->brain = new Brain();
 }
 
 /*Dog::Dog(std::string tp) {
@@ -13,6 +14,7 @@ Dog::Dog() {
 Dog::Dog(const Dog& copyDog) : Animal(copyDog) {
 	std::cout << "Dog copy constructor called." << std::endl;
 	this->type = copyDog.type;
+	this->brain = copyDog.brain;
 }
 
 Dog &Dog::operator=(const Dog& op) {
@@ -24,6 +26,7 @@ Dog &Dog::operator=(const Dog& op) {
 
 Dog::~Dog() {
 	std::cout << "Dog destructor called." << std::endl;
+	delete this->brain;
 }
 
 // Functions
@@ -33,6 +36,6 @@ void Dog::makeSound() const {
 		std::cout << "Woof woof. Pet me!" << std::endl;
 }
 
-std::string Dog::exteriorize(int index) const {
-	return this->brain->exteriorize(index);
+void Dog::exteriorize(int index) const {
+	std::cout << this->brain->exteriorize(index) << std::endl;
 }

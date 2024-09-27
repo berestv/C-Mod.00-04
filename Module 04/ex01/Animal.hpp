@@ -15,6 +15,7 @@ public:
 
 	virtual void makeSound() const;
 	std::string getType() const;
+	virtual void exteriorize(int index) const;
 };
 
 #endif //ANIMAL_HPP

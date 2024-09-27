@@ -29,6 +29,7 @@ Cat &Cat::operator=(const Cat& op) {
 
 Cat::~Cat() {
 	std::cout << "Cat destructor called." << std::endl;
+	delete this->brain;
 }
 
 // Functions
@@ -38,6 +39,6 @@ void Cat::makeSound() const {
 		std::cout << "Meow meow. Pet me!" << std::endl;
 }
 
-std::string Cat::exteriorize(int index) const {
-	return this->brain->exteriorize(index);
+void Cat::exteriorize(int index) const {
+	std::cout << this->brain->exteriorize(index) << std::endl;
 }

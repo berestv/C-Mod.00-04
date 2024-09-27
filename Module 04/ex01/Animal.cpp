@@ -33,3 +33,8 @@ void Animal::makeSound() const {
 std::string Animal::getType() const {
 	return this->type;
 }
+
+
+void Animal::exteriorize(int index) const {
+	std::cout << "I'm just an animal. " << index << std::endl;
+}
