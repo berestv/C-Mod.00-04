@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
 # Project name
-NAME = abstractClass
-SRC = main.cpp AMateria.cpp
+NAME = interfaceRecap
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
