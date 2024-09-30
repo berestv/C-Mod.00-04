@@ -7,8 +7,8 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	std::cout << std::endl;
 
 	delete j;//should not create a leak
@@ -17,7 +17,7 @@ int main()
 	std::cout << std::endl;
 
 	int no = 8;
-	const Animal* a[no];
+	const AAnimal* a[no];
 
 	for (int k = 0; k < no; k++) {
 		if (k % 2 == 0)
