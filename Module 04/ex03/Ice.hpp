@@ -3,14 +3,19 @@
 
 #include "AMateria.hpp"
 
-class Ice : AMateria {
+class Ice : public AMateria {
 private:
-	std::string type;
+	std::string mType;
 
+public:
 	Ice();
 	Ice(const Ice& ic);
 	Ice &operator=(const Ice& ic);
+	~Ice();
 
+	std::string const & getType();
+	Ice* clone() const override;
+	void use(ICharacter& target);
 };
 
 #endif //ICE_HPP
