@@ -3,7 +3,7 @@
 
 #include "AMateria.hpp"
 
-class ICHaracter {
+class ICharacter {
 
 };
 
