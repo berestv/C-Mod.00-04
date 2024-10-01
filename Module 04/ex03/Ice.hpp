@@ -14,7 +14,7 @@ public:
 	~Ice();
 
 	std::string const & getType();
-	Ice* clone() const override;
+	Ice* clone() const;
 	void use(ICharacter& target);
 };
 
