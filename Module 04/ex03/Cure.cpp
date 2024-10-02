@@ -1,24 +1,24 @@
 #include "Cure.hpp"
 
 Cure::Cure() {
-	std::cout << "Ice default constructor called" << std::endl;
+	std::cout << "Cure default constructor called" << std::endl;
 	this->mType = "cure";
 }
 
-Cure::Ice(const Cure &ic) {
-	std::cout << "Ice copy constructor called" << std::endl;
+Cure::Cure(const Cure &ic) {
+	std::cout << "Cure copy constructor called" << std::endl;
 	this->mType = ic.mType;
 }
 
 Cure &Cure::operator=(const Cure &ic) {
-	std::cout << "Ice copy assignment operator called" << std::endl;
+	std::cout << "Cure copy assignment operator called" << std::endl;
 	if (this != &ic)
 		this->mType = ic.mType;
 	return *this;
 }
 
 Cure::~Cure() {
-	std::cout << "Ice destructor called" << std::endl;
+	std::cout << "Cure destructor called" << std::endl;
 }
 
 // FUNCTIONS
