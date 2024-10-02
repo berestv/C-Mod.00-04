@@ -8,7 +8,14 @@ private:
 	std::string mType;
 
 public:
+	Cure();
+	Cure(const Cure& ic);
+	Cure &operator=(const Cure& ic);
+	~Cure();
 
+	std::string const & getType();
+	Cure* clone() const;
+	void use(ICharacter& target);
 };
 
 #endif //CURE_HPP

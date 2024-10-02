@@ -6,11 +6,10 @@ RM = rm -rf
 # Project name
 NAME = interfaceRecap
 SRC = main.cpp \
-	AMateria.cpp \
-	Ice.cpp \
-	Cure.cpp \
-	ICharacter.cpp \
-	Character.cpp
+		AMateria.cpp \
+		Ice.cpp \
+		Cure.cpp \
+		Character.cpp \
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

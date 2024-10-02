@@ -11,10 +11,10 @@ private:
 
 public:
 	Character();
-	Character(std::string nm);
+	explicit Character(std::string nm);
+	~Character();
 	Character(const Character& chr);
 	Character &operator=(const Character& chr);
-	~Character();
 
 	std::string const& getName() const;
 	void equip(AMateria* m);
