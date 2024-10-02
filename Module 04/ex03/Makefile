@@ -7,7 +7,8 @@ RM = rm -rf
 NAME = interfaceRecap
 SRC = main.cpp \
 	AMateria.cpp \
-	Ice.cpp Cure.cpp \
+	Ice.cpp \
+	Cure.cpp \
 	ICharacter.cpp \
 	Character.cpp
 
