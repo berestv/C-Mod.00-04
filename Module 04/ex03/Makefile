@@ -10,6 +10,7 @@ SRC = main.cpp \
 		Ice.cpp \
 		Cure.cpp \
 		Character.cpp \
+		MateriaSource.cpp \
 
 OBJDIR = bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

@@ -5,7 +5,7 @@ Ice::Ice() {
 	this->mType = "ice";
 }
 
-Ice::Ice(const Ice &ic) {
+Ice::Ice(const Ice &ic) : AMateria() {
 	std::cout << "Ice copy constructor called" << std::endl;
 	this->mType = ic.mType;
 }

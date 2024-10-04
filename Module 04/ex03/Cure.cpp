@@ -5,7 +5,7 @@ Cure::Cure() {
 	this->mType = "cure";
 }
 
-Cure::Cure(const Cure &ic) {
+Cure::Cure(const Cure &ic) : AMateria() {
 	std::cout << "Cure copy constructor called" << std::endl;
 	this->mType = ic.mType;
 }
