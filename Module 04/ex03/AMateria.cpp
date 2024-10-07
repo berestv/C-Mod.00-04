@@ -28,6 +28,9 @@ AMateria::~AMateria() {
 
 // FUNCTIONS
 
+std::string const &AMateria::getType() const {
+	return this->mType;
+}
 
 void AMateria::use(ICharacter &target) {
 	target.getName();

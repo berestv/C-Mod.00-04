@@ -1,8 +1,7 @@
 #include "Cure.hpp"
 
-Cure::Cure() {
+Cure::Cure() : AMateria("cure") {
 	std::cout << "Cure default constructor called" << std::endl;
-	this->mType = "cure";
 }
 
 Cure::Cure(const Cure &ic) : AMateria() {
@@ -23,7 +22,7 @@ Cure::~Cure() {
 
 // FUNCTIONS
 
-std::string Cure::getType() const {
+std::string &Cure::getType() {
 	return this->mType;
 }
 

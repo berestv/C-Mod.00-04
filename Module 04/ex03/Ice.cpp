@@ -1,6 +1,6 @@
 #include "Ice.hpp"
 
-Ice::Ice() : mType("ice") {
+Ice::Ice() :  AMateria("ice") {
 	std::cout << "Ice default constructor called" << std::endl;
 }
 
@@ -22,7 +22,7 @@ Ice::~Ice() {
 
 // FUNCTIONS
 
-std::string Ice::getType() const {
+std::string &Ice::getType() {
 	return this->mType;
 }
 

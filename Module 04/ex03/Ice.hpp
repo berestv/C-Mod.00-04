@@ -13,7 +13,7 @@ public:
 	Ice &operator=(const Ice& ic);
 	~Ice();
 
-	std::string getType() const;
+	std::string& getType();
 	Ice* clone() const;
 	void use(ICharacter& target);
 };
