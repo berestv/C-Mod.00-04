@@ -23,7 +23,7 @@ Cure::~Cure() {
 
 // FUNCTIONS
 
-const std::string &Cure::getType() {
+std::string Cure::getType() const {
 	return this->mType;
 }
 

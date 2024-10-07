@@ -2,6 +2,7 @@
 
 AMateria::AMateria() {
 	std::cout << "AMateria default constructor called" << std::endl;
+	this->mType = "abstract type";
 }
 
 AMateria::AMateria(std::string const & type) {
@@ -27,9 +28,6 @@ AMateria::~AMateria() {
 
 // FUNCTIONS
 
-const std::string &AMateria::getType() const {
-	return this->mType;
-}
 
 void AMateria::use(ICharacter &target) {
 	target.getName();

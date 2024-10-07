@@ -2,17 +2,29 @@
 
 MateriaSource::MateriaSource() {
 	std::cout << "MateriaSource default constructor called." << std::endl;
+	for (int i = 0; i < 4; i++) {
+		this->mats[i] = 0;
+	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource &matSrc) {
 	std::cout << "MateriaSource copy constructor called." << std::endl;
-	*this = matSrc;
-
+	for (int i = 0; i < 4; i++) {
+		if(matSrc.mats[i])
+			this->mats[i] = matSrc.mats[i]->clone();
+	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &matSrc) {
 	if (this != &matSrc)
-		*this = matSrc;
+	{
+		for (int i = 0; i < 4; i++) {
+			if (this->mats[i])
+				delete this->mats[i];
+			if (matSrc.mats[i])
+				this->mats[i] = matSrc.mats[i];
+		}
+	}
 	return *this;
 }
 
@@ -30,7 +42,7 @@ void MateriaSource::learnMateria(AMateria* mt) {
 	for (int i = 0; i < 4; i++) {
 		if (!this->mats[i])
 		{
-			this->mats[i] = mt;
+			this->mats[i] = mt->clone();
 			std::cout << this->mats[i]->getType() << " was learned successfully!" << std::endl;
 			return ;
 		}
