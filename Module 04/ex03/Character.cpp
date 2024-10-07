@@ -37,23 +37,22 @@ const std::string &Character::getName() const {
 }
 
 void Character::equip(AMateria *m) {
-	bool full = true;
 	int i;
 
 	for (i = 0; i < 4; i++) {
 		if (!this->inventory[i])
 		{
 			this->inventory[i] = m;
-			full = false;
+			return ;
 		}
 	}
 
 /*	if (full)
 		std::cout << "Inventory full! You need to unequip something first before equipping " << m->getType() << "." << std::cout;
 	else
-		std::cout << m->getType() << " was equipped in slot " << i << "." << std::endl;*/
-	if(!full)
 		std::cout << m->getType() << " was equipped in slot " << i << "." << std::endl;
+	if(!full)
+		std::cout << this->inventory[i]->getType() << " was equipped in slot " << i << "." << std::endl;*/
 }
 
 void Character::unequip(int idx) {
