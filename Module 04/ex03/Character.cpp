@@ -73,7 +73,7 @@ void Character::unequip(int idx) {
 
 void Character::use(int idx, ICharacter &target) {
 	if (this->inventory[idx]){
-		std::cout << "Take that, " << target.getName() << "!" << std::endl;
+		//std::cout << "Take that, " << target.getName() << "!" << std::endl;
 		this->inventory[idx]->use(target);
 	}
 	else

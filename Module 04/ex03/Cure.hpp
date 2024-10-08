@@ -13,7 +13,7 @@ public:
 	Cure &operator=(const Cure& ic);
 	~Cure();
 
-	std::string& getType();
+	const std::string& getType() const;
 	Cure* clone() const;
 	void use(ICharacter& target);
 };

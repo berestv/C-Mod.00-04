@@ -4,7 +4,7 @@ Cure::Cure() : AMateria("cure") {
 	std::cout << "Cure default constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure &ic) : AMateria() {
+Cure::Cure(const Cure &ic) : AMateria("cure") {
 	std::cout << "Cure copy constructor called" << std::endl;
 	this->mType = ic.mType;
 }
@@ -22,7 +22,7 @@ Cure::~Cure() {
 
 // FUNCTIONS
 
-std::string &Cure::getType() {
+const std::string &Cure::getType() const {
 	return this->mType;
 }
 

@@ -27,9 +27,11 @@ int main()
 	ICharacter* bob = new Character("bob");
 	std::cout << std::endl;
 
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Expected output:" << std::endl;
 	me->use(0, *bob);
 	me->use(1, *bob);
-	std::cout << std::endl;
+	std::cout << "--------------------------------" << std::endl;
 
 	delete bob;
 	delete me;

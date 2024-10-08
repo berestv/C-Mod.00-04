@@ -13,9 +13,11 @@ public:
 	Ice &operator=(const Ice& ic);
 	~Ice();
 
-	std::string& getType();
+
 	Ice* clone() const;
 	void use(ICharacter& target);
+
+	const std::string &getType() const;
 };
 
 #endif //ICE_HPP

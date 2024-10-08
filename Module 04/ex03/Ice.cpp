@@ -4,7 +4,7 @@ Ice::Ice() :  AMateria("ice") {
 	std::cout << "Ice default constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &ic) : AMateria() {
+Ice::Ice(const Ice &ic) : AMateria("ice") {
 	std::cout << "Ice copy constructor called" << std::endl;
 	this->mType = ic.mType;
 }
@@ -22,7 +22,7 @@ Ice::~Ice() {
 
 // FUNCTIONS
 
-std::string &Ice::getType() {
+const std::string &Ice::getType() const {
 	return this->mType;
 }
 
