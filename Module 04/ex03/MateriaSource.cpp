@@ -42,7 +42,7 @@ void MateriaSource::learnMateria(AMateria* mt) {
 	for (int i = 0; i < 4; i++) {
 		if (!this->mats[i])
 		{
-			this->mats[i] = mt->clone();
+			this->mats[i] = mt;
 			std::cout << this->mats[i]->getType() << " was learned successfully!" << std::endl;
 			return ;
 		}
