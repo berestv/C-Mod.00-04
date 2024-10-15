@@ -35,46 +35,46 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj) {
 }
 
 bool Fixed::operator>(const Fixed &op) const {
-	if (op.toFloat() > this->toFloat())
+	if (this->toFloat() > op.toFloat())
 		return true;
 	return false;
 }
 bool Fixed::operator<(const Fixed &op) const {
-	if (op.toFloat() < this->toFloat())
+	if (this->toFloat() < op.toFloat())
 		return true;
 	return false;
 }
 
 bool Fixed::operator>=(const Fixed &op) const {
-	if (op.toFloat() >= this->toFloat())
+	if (this->toFloat() >= op.toFloat())
 		return true;
 	return false;
 }
 bool Fixed::operator<=(const Fixed &op) const {
-	if (op.toFloat() <= this->toFloat())
+	if (this->toFloat() <= op.toFloat())
 		return true;
 	return false;
 }
 
 bool Fixed::operator==(const Fixed &op) const {
-	if (op.toFloat() == this->toFloat())
+	if (this->toFloat() == op.toFloat())
 		return true;
 	return false;
 }
 bool Fixed::operator!=(const Fixed &op) const {
-	if (op.toFloat() != this->toFloat())
+	if (this->toFloat() != op.toFloat())
 		return true;
 	return false;
 }
 
 Fixed Fixed::operator+(const Fixed &op) const {
-	return (op.toFloat() + this->toFloat());
+	return (this->toFloat() + op.toFloat());
 }
 Fixed Fixed::operator-(const Fixed &op) const {
-	return (op.toFloat() - this->toFloat());
+	return (this->toFloat() - op.toFloat());
 }
 Fixed Fixed::operator*(const Fixed &op) const {
-	return (op.toFloat() * this->toFloat());
+	return (this->toFloat() * op.toFloat());
 }
 Fixed Fixed::operator/(const Fixed &op) const {
 	if(this->toFloat() == 0)
@@ -82,7 +82,7 @@ Fixed Fixed::operator/(const Fixed &op) const {
 		std::cout << "Math error wtf man..." << std::endl;
 		return 0;
 	}
-	return (op.toFloat() / this->toFloat());
+	return (this->toFloat() / op.toFloat());
 }
 
 Fixed Fixed::operator++() {
