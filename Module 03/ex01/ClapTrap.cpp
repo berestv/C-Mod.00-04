@@ -1,19 +1,19 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : name("Timmy"), hp(10), enrg(10), atk(0) {
-	std::cout << "ClapTrap default constructor called." << std::endl;
+	std::cout << this->name << "'s ClapTrap default constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string nm) : name(nm), hp(10), enrg(10), atk(0) {
-	std::cout << "ClapTrap constructor called." << std::endl;
+	std::cout << this->name << "'s ClapTrap constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cpy) : name(cpy.name), hp(cpy.hp), enrg(cpy.enrg), atk(cpy.atk) {
-	std::cout << "ClapTrap copy constructor called." << std::endl;
+	std::cout << this->name << "'s ClapTrap copy constructor called." << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &op) {
-	std::cout << "ClapTrap copy assignment operator called." << std::endl;
+	std::cout << this->name << "'s ClapTrap copy assignment operator called." << std::endl;
 	if (this != &op)
 	{
 		this->name = op.name;
@@ -25,7 +25,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &op) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap destructor called." << std::endl;
+	std::cout << this->name << "'s ClapTrap destructor called." << std::endl;
 }
 
 // --------- FUNCTIONS ---------
