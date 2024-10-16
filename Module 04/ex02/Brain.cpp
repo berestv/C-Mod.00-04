@@ -19,13 +19,16 @@ Brain::Brain() {
 
 Brain::Brain(const Brain &br) {
 	std::cout << "Brain copy constructor called." << std::endl;
-	*this = br;
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = br.ideas[i];
+	}
 }
 
 Brain &Brain::operator=(const Brain &brop) {
 	std::cout << "Brain default constructor called." << std::endl;
 	if (this != &brop)
-		*this = brop;
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = brop.ideas[i];
 	return *this;
 }
 
