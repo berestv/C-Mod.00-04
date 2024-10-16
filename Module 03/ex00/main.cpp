@@ -21,4 +21,5 @@ int main() {
 	std::cout << std::endl;
 	player.beRepaired(1);
 	bot.beRepaired(1);
+	std::cout << std::endl;
 }
