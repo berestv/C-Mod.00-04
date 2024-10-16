@@ -7,7 +7,7 @@ RM = rm -rf
 NAME = abstractClass
 SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
-OBJDIR = bin
+OBJDIR = .bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # RULES

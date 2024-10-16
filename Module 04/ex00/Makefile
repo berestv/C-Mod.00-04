@@ -7,7 +7,7 @@ RM = rm -rf
 NAME = polymorphism
 SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
-OBJDIR = bin
+OBJDIR = .bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # RULES

@@ -7,7 +7,7 @@ RM = rm -rf
 NAME = clapTrap
 SRC = main.cpp ClapTrap.cpp
 
-OBJDIR = bin
+OBJDIR = .bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # RULES

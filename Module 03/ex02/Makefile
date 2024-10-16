@@ -7,7 +7,7 @@ RM = rm -rf
 NAME = fragTrap
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-OBJDIR = bin
+OBJDIR = .bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # RULES

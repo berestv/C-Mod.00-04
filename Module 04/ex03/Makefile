@@ -12,7 +12,7 @@ SRC = main.cpp \
 		Character.cpp \
 		MateriaSource.cpp \
 
-OBJDIR = bin
+OBJDIR = .bin
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 # RULES
