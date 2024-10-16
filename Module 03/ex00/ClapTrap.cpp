@@ -33,6 +33,8 @@ ClapTrap::~ClapTrap() {
 void ClapTrap::attack(const std::string &target) {
 	if (this->enrg <= 0)
 		std::cout << "Can't attack! No energy left." << std::endl;
+	else if (this->hp <= 0)
+		std::cout << "ClapTrap got clapped." << std::endl;
 	else
 	{
 		this->enrg--;
@@ -59,7 +61,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->enrg <= 0)
-		std::cout << "Can't attack! No energy left." << std::endl;
+		std::cout << "Can't repair! No energy left." << std::endl;
 	else if (this->hp <= 0)
 		std::cout << "ClapTrap got clapped." << std::endl;
 	else
