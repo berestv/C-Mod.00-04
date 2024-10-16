@@ -18,7 +18,14 @@ int main() {
 
 	std::cout << "NATO entered the chat." << std::endl;
 	std::cout << "NATO said: STOP FIGHTING!" << std::endl;
+
 	std::cout << std::endl;
+	noname.takeDamage(20);
+	noname.takeDamage(1);
+	noname.attack("N");
+	noname.beRepaired(1);
+	std::cout << std::endl;
+
 	player.beRepaired(1);
 	bot.beRepaired(1);
 	std::cout << std::endl;
