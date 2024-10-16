@@ -31,10 +31,10 @@ ClapTrap::~ClapTrap() {
 // --------- FUNCTIONS ---------
 
 void ClapTrap::attack(const std::string &target) {
-	if (this->enrg <= 0)
-		std::cout << "Can't attack! No energy left." << std::endl;
-	else if (this->hp <= 0)
+	if (this->hp <= 0)
 		std::cout << "Can't attack...ClapTrap was clapped." << std::endl;
+	else if (this->enrg <= 0)
+		std::cout << "Can't attack! No energy left." << std::endl;
 	else
 	{
 		this->enrg--;
@@ -55,7 +55,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		{
 			this->enrg = 0;
 			this->atk = 0;
-			std::cout << "ClapTrap " << this->name << " got clapped." << std::endl;
+			if (hp <= -20)
+				std::cout << "ClapTrap " << this->name << " got absolutely destroyed." << std::endl;
+			else
+				std::cout << "ClapTrap " << this->name << " got clapped." << std::endl;
 		}
 		else
 			std::cout << "Ouch! " << this->name << " received " << amount <<
@@ -64,15 +67,15 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (this->enrg <= 0)
-		std::cout << "Can't repair " << this->name << "! No energy left." << std::endl;
-	else if (this->hp <= 0)
-		std::cout << "Can't repair...ClapTrap was clapped." << std::endl;
+	if (this->hp <= 0)
+		std::cout << "Can't repair...ClapTrap " << getName() << " was clapped." << std::endl;
+	else if (this->enrg <= 0)
+		std::cout << "Can't repair " << getName() << "! No energy left." << std::endl;
 	else
 	{
 		this->enrg--;
 		this->hp += amount;
-		std::cout << this->name << " repaired " << amount << " hit points. Current HP: " << this->hp << ". Energy after repair: " << this->enrg << std::endl;
+		std::cout << getName() << " repaired " << amount << " hit points. Current HP: " << this->hp << ". Energy after repair: " << this->enrg << std::endl;
 	}
 }
 

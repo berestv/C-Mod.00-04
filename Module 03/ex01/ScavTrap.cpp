@@ -52,7 +52,7 @@ void ScavTrap::guardGate() {
 	{
 		guarding = true;
 		this->atk += 20;
-		std::cout << this->name << " guarding UN Roadblock. Attack damage increased. Extraction will be impossible." << std::endl;
+		std::cout << this->name << " gatekeeping UN Roadblock. Attack damage increased. Extraction will be impossible." << std::endl;
 	}
 	else
 	{
@@ -73,7 +73,7 @@ void ScavTrap::attack(const std::string &target) {
 					  " with a mounted AGS-30 30x29mm automatic grenade launcher, for " << this->atk <<
 					  " points of damage. Energy after attack: "<< this->enrg << std::endl;
 		else
-			std::cout << "ScavTrap " << this->name << " attacks " << target << " for " << this->atk <<
+			std::cout << "ScavTrap " << this->name << " attacks " << target << " with a Beretta M9 for " << this->atk <<
 						" points of damage. Energy after attack: "<< this->enrg << std::endl;
 	}
 }

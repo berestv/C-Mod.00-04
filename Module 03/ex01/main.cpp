@@ -16,7 +16,7 @@ int main() {
 	std::cout << std::endl;
 
 	raider.attack(player.getName());
-	player.takeDamage(9);
+	player.takeDamage(9); // Porque se fosse player.getDmg(), morria logo.
 	std::cout << std::endl;
 
 	raider.guardGate();
