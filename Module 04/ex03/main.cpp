@@ -22,7 +22,12 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	std::cout << std::endl;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");
 	std::cout << std::endl;
@@ -32,6 +37,7 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 	std::cout << "--------------------------------" << std::endl;
+	std::cout << std::endl;
 
 	delete bob;
 	delete me;
