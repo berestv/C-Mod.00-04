@@ -11,9 +11,9 @@ public:
 	//Animal(std::string tp);
 	WrongAnimal (const WrongAnimal& copyAnm);
 	WrongAnimal &operator=(const WrongAnimal& op);
-	virtual ~WrongAnimal();
+	~WrongAnimal();
 
-	virtual void makeSound() const;
+	void makeSound() const;
 	std::string getType() const;
 };
 

@@ -10,7 +10,7 @@ Animal::Animal() : type("Animal") {
 
 Animal::Animal(const Animal& c) {
 	std::cout << "Animal copy constructor called." << std::endl;
-	*this = c;
+	this->type = c.getType();
 }
 
 Animal &Animal::operator=(const Animal& op) {
