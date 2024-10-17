@@ -1,6 +1,8 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#define BPSIZE 10
+
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
@@ -8,7 +10,9 @@ class Character : public ICharacter {
 private:
 	std::string name;
 	AMateria* inventory[4];
+	AMateria* backpack[BPSIZE];
 
+	void handleBackpack(AMateria& m);
 public:
 	Character();
 	explicit Character(std::string nm);

@@ -6,6 +6,9 @@ Character::Character() {
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = 0;
 	}
+	for (int i = 0; i < BPSIZE; i++) {
+		this->backpack[i] = 0;
+	}
 }
 
 Character::Character(std::string nm) {
@@ -19,12 +22,30 @@ Character::Character(std::string nm) {
 Character::Character(const Character &chr) {
 	std::cout << "Character copy constructor called." << std::endl;
 	this->name = chr.name;
+	for (int i = 0; i < 4; i++) {
+		delete this->inventory[i];
+		this->inventory[i] = chr.inventory[i]->clone();
+	}
+	for (int i = 0; i < BPSIZE; i++) {
+		delete this->backpack[i];
+		this->backpack[i] = chr.backpack[i]->clone();
+	}
 }
 
 Character &Character::operator=(const Character &chr) {
 	std::cout << "Character copy assignment operator called." << std::endl;
 	if (this != &chr)
-		*this = chr;
+	{
+		this->name = chr.name;
+		for (int i = 0; i < 4; i++) {
+			delete this->inventory[i];
+			this->inventory[i] = chr.inventory[i]->clone();
+		}
+		for (int i = 0; i < BPSIZE; i++) {
+			delete this->backpack[i];
+			this->backpack[i] = chr.backpack[i]->clone();
+		}
+	}
 	return *this;
 }
 
@@ -33,6 +54,10 @@ Character::~Character() {
 	for (int i = 0; i < 4; i++) {
 		if (inventory[i])
 			delete inventory[i];
+	}
+	for (int i = 0; i < BPSIZE; i++) {
+		if (backpack[i])
+			delete backpack[i];
 	}
 }
 
@@ -66,11 +91,11 @@ void Character::unequip(int idx) {
 	if ((idx >= 0 && idx <= 3) && this->inventory[idx])
 	{
 		std::cout << "Unequipped " << this->inventory[idx]->getType() << "." << std::endl;
-		delete this->inventory[idx];
+		handleBackpack(*this->inventory[idx]);
 		this->inventory[idx] = NULL;
 	}
-	else
-		std::cout << "Nothing on that slot!" << std::endl;
+/*	else
+		std::cout << "Nothing on that slot!" << std::endl;*/
 }
 
 void Character::use(int idx, ICharacter &target) {
@@ -80,4 +105,14 @@ void Character::use(int idx, ICharacter &target) {
 	}
 /*	else
 		std::cout << "No materia in slot " << idx << "." << std::endl;*/
+}
+
+void Character::handleBackpack(AMateria &m) {
+	static int index = 0;
+
+	if (index > BPSIZE)
+		index = 0;
+	if (this->backpack[index])
+		delete this->backpack[index];
+	this->backpack[index] = &m;
 }
