@@ -28,6 +28,7 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
+	delete tmp;
 
 	ICharacter* bob = new Character("bob");
 	std::cout << std::endl;
