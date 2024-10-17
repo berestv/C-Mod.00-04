@@ -52,6 +52,7 @@ void Character::equip(AMateria *m) {
 			return ;
 		}
 	}
+	delete m;
 
 /*	if (full)
 		std::cout << "Inventory full! You need to unequip something first before equipping " << m->getType() << "." << std::cout;
@@ -62,20 +63,21 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
-	if (this->inventory[idx])
+	if ((idx >= 0 && idx <= 3) && this->inventory[idx])
 	{
 		std::cout << "Unequipped " << this->inventory[idx]->getType() << "." << std::endl;
 		delete this->inventory[idx];
+		this->inventory[idx] = NULL;
 	}
 	else
 		std::cout << "Nothing on that slot!" << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target) {
-	if (this->inventory[idx]){
+	if ((idx >= 0 && idx <= 3) && this->inventory[idx]){
 		//std::cout << "Take that, " << target.getName() << "!" << std::endl;
 		this->inventory[idx]->use(target);
 	}
-	else
-		std::cout << "No materia in slot " << idx << "." << std::endl;
+/*	else
+		std::cout << "No materia in slot " << idx << "." << std::endl;*/
 }
