@@ -41,7 +41,7 @@ int main()
 
 	std::cout << std::endl;
 	std::cout << "---------- Overfilling ----------" << std::endl;
-	for (int i = 0; i < 5; ++i) { // Overfilling inventory with ice
+	for (int i = 0; i < 5; ++i) {
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
 	}
@@ -62,7 +62,7 @@ int main()
 
 	std::cout << std::endl;
 	std::cout << "---------- Overfilling ----------" << std::endl;
-	for (int i = 0; i < 5; ++i) { // Overfilling inventory with cure
+	for (int i = 0; i < 5; ++i) {
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
 	}
@@ -72,6 +72,7 @@ int main()
 	for (int i = 0; i < 4; i++) {
 		me->use(i, *bob);
 	}
+	std::cout << std::endl;
 
 	delete bob;
 	delete me;

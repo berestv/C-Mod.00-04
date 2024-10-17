@@ -6,8 +6,8 @@ Character::Character() {
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = 0;
 	}
-	for (int i = 0; i < BPSIZE; i++) {
-		this->backpack[i] = 0;
+	for (int i = 0; i < VSIZE; i++) {
+		this->vicinity[i] = 0;
 	}
 }
 
@@ -16,6 +16,9 @@ Character::Character(std::string nm) {
 	this->name = nm;
 	for (int i = 0; i < 4; i++) {
 		this->inventory[i] = 0;
+	}
+	for (int i = 0; i < VSIZE; i++) {
+		this->vicinity[i] = 0;
 	}
 }
 
@@ -26,9 +29,9 @@ Character::Character(const Character &chr) {
 		delete this->inventory[i];
 		this->inventory[i] = chr.inventory[i]->clone();
 	}
-	for (int i = 0; i < BPSIZE; i++) {
-		delete this->backpack[i];
-		this->backpack[i] = chr.backpack[i]->clone();
+	for (int i = 0; i < VSIZE; i++) {
+		delete this->vicinity[i];
+		this->vicinity[i] = chr.vicinity[i]->clone();
 	}
 }
 
@@ -41,9 +44,9 @@ Character &Character::operator=(const Character &chr) {
 			delete this->inventory[i];
 			this->inventory[i] = chr.inventory[i]->clone();
 		}
-		for (int i = 0; i < BPSIZE; i++) {
-			delete this->backpack[i];
-			this->backpack[i] = chr.backpack[i]->clone();
+		for (int i = 0; i < VSIZE; i++) {
+			delete this->vicinity[i];
+			this->vicinity[i] = chr.vicinity[i]->clone();
 		}
 	}
 	return *this;
@@ -51,13 +54,11 @@ Character &Character::operator=(const Character &chr) {
 
 Character::~Character() {
 	std::cout << "Character destructor called." << std::endl;
-	for (int i = 0; i < 4; i++) {
-		if (inventory[i])
-			delete inventory[i];
+	for (int i = 0; i < VSIZE; i++) {
+		delete vicinity[i];
 	}
-	for (int i = 0; i < BPSIZE; i++) {
-		if (backpack[i])
-			delete backpack[i];
+	for (int i = 0; i < 4; i++) {
+		delete inventory[i];
 	}
 }
 
@@ -91,7 +92,7 @@ void Character::unequip(int idx) {
 	if ((idx >= 0 && idx <= 3) && this->inventory[idx])
 	{
 		std::cout << "Unequipped " << this->inventory[idx]->getType() << "." << std::endl;
-		handleBackpack(*this->inventory[idx]);
+		handleVic(*this->inventory[idx]);
 		this->inventory[idx] = NULL;
 	}
 /*	else
@@ -107,12 +108,12 @@ void Character::use(int idx, ICharacter &target) {
 		std::cout << "No materia in slot " << idx << "." << std::endl;*/
 }
 
-void Character::handleBackpack(AMateria &m) {
+void Character::handleVic(AMateria &m) {
 	static int index = 0;
 
-	if (index > BPSIZE)
+	if (index > VSIZE)
 		index = 0;
-	if (this->backpack[index])
-		delete this->backpack[index];
-	this->backpack[index] = &m;
+	if (this->vicinity[index])
+		delete this->vicinity[index];
+	this->vicinity[index] = &m;
 }
