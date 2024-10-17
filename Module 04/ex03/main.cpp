@@ -69,7 +69,7 @@ int main()
 
 	std::cout << std::endl;
 	std::cout << "---------- Using ----------" << std::endl;
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 10; i++) {
 		me->use(i, *bob);
 	}
 	std::cout << std::endl;
