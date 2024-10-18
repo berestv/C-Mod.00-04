@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		$(CPP) $(CFLAGS) $(OBJ) -o $(NAME)
-		echo "$(GREEN) Build completed. $(RESET)" ;
+		echo "$(GREEN)Build completed. $(RESET)" ;
 
 $(OBJDIR)/%.o: %.cpp
 		mkdir -p $(@D)
@@ -36,7 +36,7 @@ clean:
 
 fclean:
 		$(RM) $(OBJ) $(NAME) $(OBJDIR)
-		echo "$(RED) Cleaned project files/folders. $(RESET)" ;
+		echo "$(RED)Cleaned project files/folders. $(RESET)" ;
 
 re: fclean all
 
